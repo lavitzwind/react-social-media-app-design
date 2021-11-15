@@ -3,13 +3,22 @@ import { MoreVert } from "@material-ui/icons";
 import { Users } from "../../dummyData";
 
 const Post = ({ post }) => {
+	const user = Users.filter((u) => u.id === post.id)[0];
+
+	console.log(user);
 	return (
 		<div className="post">
 			<div className="postWrapper">
 				<div className="postTop">
 					<div className="postTopLeft">
-						<img className="postProfileImg" src="assets/person/1.jpeg" alt="" />
-						<span className="postUsername">Mille Seseau</span>
+						<img
+							className="postProfileImg"
+							src={Users.filter((u) => u.id === post?.userId)[0].profilePicture}
+							alt=""
+						/>
+						<span className="postUsername">
+							{Users.filter((u) => u.id === post.userId)[0].username}
+						</span>
 						<span className="postDate">{post.date}</span>
 					</div>
 					<div className="postTopRight">
